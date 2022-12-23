@@ -23,13 +23,21 @@ module.exports = class extends Component {
                                 url: url_for(category.path),
                                 name: category.name
                             }));
+                            var thumbnail=post.thumbnail ? url_for(post.thumbnail) : null;
+                            if(!thumbnail){
+                                const firstImgElRegx = /<img[^>]+src="?([^"\s]+)".*?>/;
+                                const thumbnailImgElement = post.content.match(firstImgElRegx);
+                                if (thumbnailImgElement) {
+                                    thumbnail = thumbnailImgElement[1];
+                                }
+                            }
                             return <ArticleMedia
                                 url={url_for(post.link || post.path)}
                                 title={post.title}
                                 date={date(post.date)}
                                 dateXml={date_xml(post.date)}
                                 categories={categories}
-                                thumbnail={post.thumbnail ? url_for(post.thumbnail) : null} />;
+                                thumbnail={thumbnail} />;
                         })}
                     </div>
                 </div>

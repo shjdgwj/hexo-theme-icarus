@@ -26,13 +26,20 @@ module.exports = class extends Component {
 
         const indexLaunguage = toMomentLocale(config.language || 'en');
         const language = toMomentLocale(page.lang || page.language || config.language || 'en');
-        const cover = page.cover ? url_for(page.cover) : null;
+        var cover = page.cover ? url_for(page.cover) : null;
         const updateTime = article && article.update_time !== undefined ? article.update_time : true;
         const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
         const shouldShowUpdated = page.updated && ((updateTime === 'auto' && isUpdated) || updateTime === true);
         
         if(config.excerpt.enable == true && page.excerpt.length === 0){
             page.excerpt = page.content.replace(/<\/?.+?>/g,"").replace(/ /g,"").substring(0,config.excerpt.words_count);
+        }
+        if(!cover){
+            const firstImgElRegx = /<img[^>]+src="?([^"\s]+)".*?>/;
+            const coverImgElement = page.content.match(firstImgElRegx);
+            if (coverImgElement) {
+                cover = coverImgElement[1];
+            }
         }
 
         return <Fragment>
