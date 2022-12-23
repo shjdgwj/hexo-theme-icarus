@@ -30,6 +30,10 @@ module.exports = class extends Component {
         const updateTime = article && article.update_time !== undefined ? article.update_time : true;
         const isUpdated = page.updated && !moment(page.date).isSame(moment(page.updated));
         const shouldShowUpdated = page.updated && ((updateTime === 'auto' && isUpdated) || updateTime === true);
+        
+        if(config.excerpt.enable == true && page.excerpt.length === 0){
+            page.excerpt = page.content.replace(/<\/?.+?>/g,"").replace(/ /g,"").substring(0,config.excerpt.words_count);
+        }
 
         return <Fragment>
             {/* Main content */}
