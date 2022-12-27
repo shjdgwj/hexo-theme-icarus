@@ -37,10 +37,14 @@ class Footer extends Component {
                             <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
                             &nbsp;&nbsp;Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>&nbsp;&&nbsp;
                             <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
-                            <br/><a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备xxxxxxx号</a>
                             {showVisitorCounter ? <br /> : null}
-                            {showVisitorCounter ? <span id="busuanzi_container_site_uv"
+                            {showVisitorCounter ? <span /*id="busuanzi_container_site_uv"*/
                                 dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
+                        </p>
+                    </div>
+                    <div class="level-mid">
+                        <p class="is-size-7">
+                            <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备xxxxxxx号</a>
                         </p>
                     </div>
                     <div class="level-end">
