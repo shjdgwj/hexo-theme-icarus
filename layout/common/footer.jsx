@@ -44,7 +44,7 @@ class Footer extends Component {
                     </div>
                     <div class="level-mid">
                         <p class="is-size-7">
-                            <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备xxxxxxx号</a>
+                            <a href="https://beian.miit.gov.cn/" style="color:#606266" target="_blank">沪ICP备2023001326号</a>
                         </p>
                     </div>
                     <div class="level-end">
