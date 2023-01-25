@@ -42,9 +42,13 @@ class Footer extends Component {
                                 dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
                         </p>
                     </div>
-                    <div class="level-mid">
+                    <div class="level-mid" style="text-align:center;">
                         <p class="is-size-7">
-                            <a href="https://beian.miit.gov.cn/" style="color:#606266" target="_blank">沪ICP备2023001326号</a>
+                            <a href="https://beian.miit.gov.cn/" style="color:#606266" target="_blank">沪ICP备2023001326号-1</a>
+                        </p>
+                        <p class="is-size-7">
+                            <img  src="/img/备案图标.png"></img>
+                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011402010007" style="color:#606266" target="_blank">沪公网安备 31011402010007号</a>
                         </p>
                     </div>
                     <div class="level-end">
